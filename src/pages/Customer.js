@@ -50,7 +50,7 @@ export default function Customer() {
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: "http://localhost:3000/customer",
+        redirectTo: `${window.location.origin}/customer`,
       },
     });
   };
@@ -146,8 +146,7 @@ export default function Customer() {
 
     return () => clearInterval(autoRefreshOrders);
   }, [userEmail, fetchLatestOrder]);
-
-  const placeOrder = async () => {
+    const placeOrder = async () => {
     const phoneRegex = /^\d{11}$/;
 
     if (!orderSystemEnabled) {
@@ -329,8 +328,7 @@ export default function Customer() {
 
     return <div className="banner-box">🎉 Welcome to GRAB & GO HSP</div>;
   };
-
-  return (
+    return (
     <div className="dashboard">
       <div className="sidebar">
         <h2 className="sidebar-logo">GRAB & GO HSP</h2>
@@ -504,8 +502,7 @@ export default function Customer() {
             )}
           </div>
         )}
-
-        {activePage === "track" && (
+                {activePage === "track" && (
           <div className="admin-section">
             <h2>Track Order</h2>
 

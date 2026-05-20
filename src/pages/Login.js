@@ -6,7 +6,7 @@ export default function Login() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: "http://localhost:3000/customer",
+        redirectTo: `${window.location.origin}/customer`,
       },
     });
 
@@ -14,8 +14,7 @@ export default function Login() {
       alert(error.message);
     }
   };
-
-  return (
+    return (
     <div className="login-page">
       <div className="modern-login-card">
         <div className="top-design"></div>
